@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Totally Normal Login</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Puzzle CAPTCHA Screen -->
+    <div id="captcha-screen" class="screen active">
+        <h2>Human Verification Required</h2>
+        <div class="puzzle-container">
+            <div class="puzzle-slot"></div>
+            <div class="puzzle-piece" id="puzzle-piece"></div>
+        </div>
+        <div class="slider-container">
+            <input type="range" id="puzzle-slider" min="0" max="100" value="0">
+        </div>
+        <button id="verify-btn" class="btn" disabled>Verify</button>
+    </div>
+
+    <!-- Login Form Screen -->
+    <div id="login-screen" class="screen">
+        <h2>Create Account</h2>
+        <form id="login-form">
+            <div class="input-group">
+                <label for="firstname">First Name</label>
+                <div class="input-wrapper">
+                    <input type="text" id="firstname" class="form-input">
+                    <span class="checkmark" id="firstname-check">✓</span>
+                </div>
+                <span class="error" id="firstname-error">Must be at least 7 characters</span>
+            </div>
+
+            <div class="input-group">
+                <label for="lastname">Last Name</label>
+                <div class="input-wrapper">
+                    <input type="text" id="lastname" class="form-input">
+                    <span class="checkmark" id="lastname-check">✓</span>
+                </div>
+                <span class="error" id="lastname-error">Cannot contain the letter G</span>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Phone Number</label>
+                <div class="input-wrapper">
+                    <input type="text" id="phone" readonly class="form-input" placeholder="Tap to select">
+                    <span class="checkmark" id="phone-check">✓</span>
+                </div>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Fake Permission Modals -->
+    <div id="permission-modal" class="modal">
+        <div class="modal-content">
+            <p id="permission-text"></p>
+            <div class="modal-buttons">
+                <button id="permission-deny" class="modal-btn">Deny</button>
+                <button id="permission-allow" class="modal-btn primary">Allow</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Calendar Picker Modal -->
+    <div id="calendar-modal" class="modal">
+        <div class="modal-content calendar">
+            <h3 id="calendar-title">Select Digit</h3>
+            <div class="calendar-grid" id="calendar-grid"></div>
+        </div>
+    </div>
+
+    <!-- Liquified Message -->
+    <div id="liquified-message" class="hidden">
+        <p>😢 Sorry, our login page has liquified.</p>
+        <p>Please check back tomorrow.</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
